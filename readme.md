@@ -11,7 +11,8 @@ Stages:
 0: Stores contacts as an object. (Done)
 1: Stores contacts in an address book object. (Done)
 2: Displays this when clicked. (Done)
-3: Physical and email addresses (in progress)
+3: Physical and email addresses (Done)
+4: Multiple addresses (not started)
 
 
 ## Setup/Installation Requirements
