@@ -48,11 +48,11 @@ function Contact(firstName, lastName, phoneNumber, Address) {
   this.lastName = lastName;
   this.phoneNumber = phoneNumber;
   this.Address = Address;
-}
+};
 
 Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
-}
+};
 
 
 //User interface
@@ -73,7 +73,8 @@ function showContact(contactId) {
   $(".first-name").html(contact.firstName);
   $(".last-name").html(contact.lastName);
   $(".phone-number").html(contact.phoneNumber);
-  $(".email-address").html(contact.emailAddress);
+  $(".email-address").html(contact.Address.emailAddress);
+  $(".physical-address").html(contact.Address.physicalAddress);
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
