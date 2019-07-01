@@ -6,7 +6,13 @@
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_Stores and displays contacts_
+Stages:
+0: Stores contacts as an object. (Done)
+1: Stores contacts in an address book object. (Done)
+2: Displays this when clicked. (Done)
+3: Physical and email addresses (in progress)
+
 
 ## Setup/Installation Requirements
 
