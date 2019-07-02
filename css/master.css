@@ -1,3 +1,13 @@
 #show-contact {
   display: none;
 }
+
+.address-group {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.type-group {
+  max-width: 500px;
+  
+}

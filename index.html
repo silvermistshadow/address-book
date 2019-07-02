@@ -28,13 +28,23 @@
               <label for="new-phone-number">Phone Number</label>
               <input type="text"  class="form-control" id="new-phone-number">
             </div>
-            <div class="form-group">
+            <div class="form-group, address-group">
               <label for="new-email-address">Email Address</label>
               <input type="text" class="form-control" id="new-email-address">
+              <label for="email-type">Type:</label>
+              <select class="form-control, type-group" id="email-type">
+                <option value="0">Personal</option>
+                <option value="1">Work</option>
+              </select>
             </div>
-            <div class="form-group">
+            <div class="form-group, address-group">
               <label for="new-physical-address">Address</label>
               <input type="text" class="form-control" id="new-physical-address">
+              <label for="address-type">Type:</label>
+              <select class="form-control, type-group" id="address-type">
+                <option value="0">Personal</option>
+                <option value="1">Work</option>
+              </select>
             </div>
             <button type="submit" class="btn-primary">Add</button>
           </form>

@@ -12,7 +12,9 @@ Stages:
 1: Stores contacts in an address book object. (Done)
 2: Displays this when clicked. (Done)
 3: Physical and email addresses (Done)
-4: Multiple addresses (not started)
+4: Multiple addresses (in progress)
+  Record multiple addresses, let user select what type it is
+  remove additional fields when form is submitted (presumably also allow user to add fields?)
 
 
 ## Setup/Installation Requirements
