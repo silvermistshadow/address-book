@@ -92,10 +92,12 @@ function attachContactListeners() {
 };
 
 /*function addAnotherAddress() {
+  var emailGroup = $("#email-group")
+  var physicalGroup = $("#physical-group")
   $("button").on("click", "#another-email", function() {
-
+    emailGroup.append("")
   });
-};*/
+};*/ //write this later, just get the two kinds working now!
 
 $(document).ready(function() {
   attachContactListeners();
@@ -106,6 +108,8 @@ $(document).ready(function() {
     var inputtedPhoneNumber = $("input#new-phone-number").val();
     var inputtedEmailAddress = $("input#new-email-address").val();
     var inputtedPhysicalAddress = $("input#new-physical-address").val();
+    var emailType0 = $("input#email-type0").val();
+    var addresstype0 = $("input#address-type0").val();
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
