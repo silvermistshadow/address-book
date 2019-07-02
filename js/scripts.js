@@ -91,6 +91,12 @@ function attachContactListeners() {
   });
 };
 
+/*function addAnotherAddress() {
+  $("button").on("click", "#another-email", function() {
+
+  });
+};*/
+
 $(document).ready(function() {
   attachContactListeners();
   $("form#new-contact").submit(function(event) {
