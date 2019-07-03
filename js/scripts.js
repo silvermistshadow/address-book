@@ -76,7 +76,7 @@ function showContact(contactId) {
   $(".last-name").html(contact.lastName);
   $(".phone-number").html(contact.phoneNumber);
   $(".email-address").html(contact.Address.emailAddress + " " + contact.Address.emailType);
-  $(".physical-address").html(contact.Address.physicalAddress + " " + contact.Address.AddressType);
+  $(".physical-address").html(contact.Address.physicalAddress + " " + contact.Address.addressType);
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
@@ -110,15 +110,15 @@ $(document).ready(function() {
     var inputtedPhoneNumber = $("input#new-phone-number").val();
     var inputtedEmailAddress = $("input#new-email-address").val();
     var inputtedPhysicalAddress = $("input#new-physical-address").val();
-    var emailType0 = $("input#email-type0").val();
-    var addressType0 = $("input#address-type0").val();
+    var emailType0 = $("#email-type0").val();
+    var addressType0 = $("#address-type0").val();
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
     $("input#new-email-address").val("");
     $("input#new-physical-address").val("");
-    $("input#email-type0").val("");
-    $("input#address-type0").val("");
+    $("#email-type0").val("");
+    $("#address-type0").val("");
     console.log(addressType0);
     var newContactAddress = new Address (inputtedEmailAddress, inputtedPhysicalAddress, emailType0, addressType0)
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, newContactAddress);
