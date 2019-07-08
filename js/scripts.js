@@ -93,16 +93,22 @@ function attachContactListeners() {
   });
 };
 
-/*function addAnotherAddress() {
+function addAnotherAddress() {
   var emailGroup = $("#email-group")
   var physicalGroup = $("#physical-group")
   $("button").on("click", "#another-email", function() {
-    emailGroup.append("")
+    emailGroup.append('<label for="email-type">Type:</label>' + '<select class="form-control, type-group" id="email-type1"> <option value="Personal">Personal</option> <option value="Work">Work</option> </select>')
+    $("#another-email").detach();
   });
-};*/ //write this later, just get the two kinds working now!
+  $("button").on("click", "#another-address", function () {
+    physicalGroup.append('<label for="address-type">Type:</label>' + '<select class="form-control, type-group" id="address-type1"> <option value="Personal">Personal</option> <option value="Work">Work</option> </select>')
+    $("#another-address").detach();
+  });
+};
 
 $(document).ready(function() {
   attachContactListeners();
+  addAnotherAddress();
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
     var inputtedFirstName = $("input#new-first-name").val();
@@ -124,5 +130,6 @@ $(document).ready(function() {
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, newContactAddress);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
+
   });
 });
