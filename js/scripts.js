@@ -75,8 +75,8 @@ function showContact(contactId) {
   $(".first-name").html(contact.firstName);
   $(".last-name").html(contact.lastName);
   $(".phone-number").html(contact.phoneNumber);
-  $(".email-address").html(contact.Address.emailAddress + " " + contact.Address.emailType);
-  $(".physical-address").html(contact.Address.physicalAddress + " " + contact.Address.addressType);
+  $(".email-address").html(contact.Address.emailAddress + " <b>Type:</b> " + contact.Address.emailType);
+  $(".physical-address").html(contact.Address.physicalAddress + " <b>Type:</b> " + contact.Address.addressType);
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
