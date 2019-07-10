@@ -96,11 +96,14 @@ function attachContactListeners() {
 function addAnotherAddress() {
   var emailGroup = $("#email-group")
   var physicalGroup = $("#physical-group")
-  $("button").on("click", "#another-email", function() {
+  $("#email-group").on("click", "button", function() {
+    emailGroup.append('<br> <label for="email2">Email:</label>' + '<input type="text" class="form-control" id="email2">')
     emailGroup.append('<label for="email-type">Type:</label>' + '<select class="form-control, type-group" id="email-type1"> <option value="Personal">Personal</option> <option value="Work">Work</option> </select>')
     $("#another-email").detach();
   });
-  $("button").on("click", "#another-address", function () {
+  $("#physical-group").on("click", "button", function () {
+    console.log("Get pills against my orders! Get moving!")
+    emailGroup.append('<br> <label for="address2">Address:</label>' + '<input type="text" class="form-control" id="address2">')
     physicalGroup.append('<label for="address-type">Type:</label>' + '<select class="form-control, type-group" id="address-type1"> <option value="Personal">Personal</option> <option value="Work">Work</option> </select>')
     $("#another-address").detach();
   });
