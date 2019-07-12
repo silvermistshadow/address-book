@@ -66,6 +66,7 @@ Contact.prototype.fullName = function() {
 
 //User interface
 var addressBook = new AddressBook();
+var address0 = new Address();
 
 function displayContactDetails(addressBookToDisplay) {
   var contactsList = $("ul#contacts");
@@ -82,8 +83,8 @@ function showContact(contactId) {
   $(".first-name").html(contact.firstName);
   $(".last-name").html(contact.lastName);
   $(".phone-number").html(contact.phoneNumber);
-  $(".email-address").html(contact.Address.emailAddress[0] + " <b>Type:</b> " + contact.Address.emailType[0]);
-  $(".physical-address").html(contact.Address.physicalAddress[0] + " <b>Type:</b> " + contact.Address.addressType[0]);
+  $(".email-address").html(contact.Address.emailAddresses[0] + " <b>Type:</b> " + contact.Address.emailType[0]);
+  $(".physical-address").html(contact.Address.physicalAddresses[0] + " <b>Type:</b> " + contact.Address.addressType[0]);
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
@@ -131,8 +132,8 @@ $(document).ready(function() {
     $("input#new-physical-address").val("");
     $("#email-type0").val("");
     $("#address-type0").val("");
-    var newContactAddress = new Address (inputtedEmailAddress, inputtedPhysicalAddress, emailType, addressType)
-    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, newContactAddress);
+    address0.addAddress(inputtedEmailAddress, inputtedPhysicalAddress, emailType, addressType);
+    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, address0);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
 
