@@ -83,8 +83,8 @@ function showContact(contactId) {
   $(".first-name").html(contact.firstName);
   $(".last-name").html(contact.lastName);
   $(".phone-number").html(contact.phoneNumber);
-  $(".email-address").html(contact.Address.emailAddresses[0] + " <b>Type:</b> " + contact.Address.emailType[0]);
-  $(".physical-address").html(contact.Address.physicalAddresses[0] + " <b>Type:</b> " + contact.Address.addressType[0]);
+  $(".email-address").html(contact.Address.emailAddresses[0] + " <b>Type:</b> " + contact.Address.emailTypes[0]);
+  $(".physical-address").html(contact.Address.physicalAddresses[0] + " <b>Type:</b> " + contact.Address.addressTypes[0]);
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
