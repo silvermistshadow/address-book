@@ -38,12 +38,19 @@ AddressBook.prototype.deleteContact = function(id) {
 }
 
 // Business Logic for Contacts ---------
-function Address(emailAddress, physicalAddress, emailType, addressType) {
-this.emailAddress = emailAddress;
-this.physicalAddress = physicalAddress;
-this.emailType = emailType;
-this.addressType = addressType;
+function Address() {
+  this.emailAddresses = [];
+  this.physicalAddresses = [];
+  this.emailTypes = [];
+  this.addressTypes = [];
 };
+
+Address.prototype.addAddress = function(emailAddress, physicalAddress, emailType, addressType) {
+  this.emailAddresses.push(emailAddress);
+  this.physicalAddresses.push(physicalAddress);
+  this.emailTypes.push(emailType);
+  this.addressTypes.push(addressType);
+}
 
 function Contact(firstName, lastName, phoneNumber, Address) {
   this.firstName = firstName;
@@ -75,8 +82,8 @@ function showContact(contactId) {
   $(".first-name").html(contact.firstName);
   $(".last-name").html(contact.lastName);
   $(".phone-number").html(contact.phoneNumber);
-  $(".email-address").html(contact.Address.emailAddress + " <b>Type:</b> " + contact.Address.emailType);
-  $(".physical-address").html(contact.Address.physicalAddress + " <b>Type:</b> " + contact.Address.addressType);
+  $(".email-address").html(contact.Address.emailAddress[0] + " <b>Type:</b> " + contact.Address.emailType[0]);
+  $(".physical-address").html(contact.Address.physicalAddress[0] + " <b>Type:</b> " + contact.Address.addressType[0]);
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
@@ -94,17 +101,13 @@ function attachContactListeners() {
 };
 
 function addAnotherAddress() {
-  var emailGroup = $("#email-group")
-  var physicalGroup = $("#physical-group")
-  $("#email-group").on("click", "button", function() {
-    emailGroup.append('<br> <label for="email2">Email:</label>' + '<input type="text" class="form-control" id="email2">')
-    emailGroup.append('<label for="email-type">Type:</label>' + '<select class="form-control, type-group" id="email-type1"> <option value="Personal">Personal</option> <option value="Work">Work</option> </select>')
+  $("#show-contact").on("click", "button#another-email", function() {
+
     $("#another-email").detach();
   });
-  $("#physical-group").on("click", "button", function () {
+  $("#show-contact").on("click", "button#another-address", function () {
     console.log("Get pills against my orders! Get moving!")
-    emailGroup.append('<br> <label for="address2">Address:</label>' + '<input type="text" class="form-control" id="address2">')
-    physicalGroup.append('<label for="address-type">Type:</label>' + '<select class="form-control, type-group" id="address-type1"> <option value="Personal">Personal</option> <option value="Work">Work</option> </select>')
+
     $("#another-address").detach();
   });
 };
@@ -119,8 +122,8 @@ $(document).ready(function() {
     var inputtedPhoneNumber = $("input#new-phone-number").val();
     var inputtedEmailAddress = $("input#new-email-address").val();
     var inputtedPhysicalAddress = $("input#new-physical-address").val();
-    var emailType0 = $("#email-type0").val();
-    var addressType0 = $("#address-type0").val();
+    var emailType = $("#email-type").val();
+    var addressType = $("#address-type").val();
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
@@ -128,8 +131,7 @@ $(document).ready(function() {
     $("input#new-physical-address").val("");
     $("#email-type0").val("");
     $("#address-type0").val("");
-    console.log(addressType0);
-    var newContactAddress = new Address (inputtedEmailAddress, inputtedPhysicalAddress, emailType0, addressType0)
+    var newContactAddress = new Address (inputtedEmailAddress, inputtedPhysicalAddress, emailType, addressType)
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, newContactAddress);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);

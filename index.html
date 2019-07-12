@@ -32,21 +32,21 @@
               <label for="new-email-address">Email Address</label>
               <input type="text" class="form-control" id="new-email-address">
               <label for="email-type">Type:</label>
-              <select class="form-control, type-group" id="email-type0">
+              <select class="form-control, type-group" id="email-type">
                 <option value="Personal">Personal</option>
                 <option value="Work">Work</option>
               </select>
-              <button type="button" class="btn-primary" id="another-email">Add another</button>
+
             </div>
             <div class="form-group, address-group" id="physical-group">
               <label for="new-physical-address">Address</label>
               <input type="text" class="form-control" id="new-physical-address">
               <label for="address-type">Type:</label>
-              <select class="form-control, type-group" id="address-type0">
+              <select class="form-control, type-group" id="address-type">
                 <option value="Personal">Personal</option>
                 <option value="Work">Work</option>
               </select>
-              <button type="button" class="btn-primary" id="another-address">Add another</button>
+
             </div>
             <br>
             <button type="submit" class="btn-primary">Add contact</button>
@@ -62,7 +62,9 @@
             <p>Last Name: <span class="last-name"></span></p>
             <p>Phone Number: <span class="phone-number"></span></p>
             <p>Email Address: <span class="email-address"></span></p>
+            <button type="button" class="btn-primary" id="another-email">Add another email</button>
             <p>Address: <span class="physical-address"></span></p>
+            <button type="button" class="btn-primary" id="another-address">Add another address</button>
             <div id="buttons">
             </div>
           </div>
