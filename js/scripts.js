@@ -103,7 +103,7 @@ function attachContactListeners() {
 
 function addAnotherAddress() {
   $("#show-contact").on("click", "button#another-email", function() {
-
+    $("button#another-email").after('<form id="email2"> <div class="form-group, address-group"><label for="add-email">Add email:</label><input type="text" class="form-control" id="add-email">' + '  ' + '<label for="email-type2">Type:</label><select class="form-control, type-group" id="email-type0"><option value="Personal">Personal</option><option value="Work">Work</option></select></div></form>')
     $("#another-email").detach();
   });
   $("#show-contact").on("click", "button#another-address", function () {
