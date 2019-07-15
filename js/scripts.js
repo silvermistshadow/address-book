@@ -94,6 +94,7 @@ function showContact(contactId) {
         $("address-type2").val("");
         $("email-type2").val("");
         contact.Address.addAddress(secondEmail, secondAddress, emailType2, addressType2);
+        console.log("I spill my drink!");
         $("form#address2").detach();
       });
 
