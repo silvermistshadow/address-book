@@ -85,6 +85,7 @@ function showContact(contactId) {
   $(".phone-number").html(contact.phoneNumber);
   $(".email-address").html(contact.Address.emailAddresses[0] + " <b>Type:</b> " + contact.Address.emailTypes[0]);
   $(".physical-address").html(contact.Address.physicalAddresses[0] + " <b>Type:</b> " + contact.Address.addressTypes[0]);
+  $("#addAddresses").html('<button type="button" class="btn-primary" id="another-address">Add another address and email</button>')
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
@@ -102,13 +103,9 @@ function attachContactListeners() {
 };
 
 function addAnotherAddress() {
-  $("#show-contact").on("click", "button#another-email", function() {
-    $("button#another-email").after('<form id="email2"> <div class="form-group, address-group"><label for="add-email">Add email:</label><input type="text" class="form-control" id="add-email">' + '  ' + '<label for="email-type2">Type:</label><select class="form-control, type-group" id="email-type0"><option value="Personal">Personal</option><option value="Work">Work</option></select></div></form>')
-    $("#another-email").detach();
-  });
   $("#show-contact").on("click", "button#another-address", function () {
     console.log("Get pills against my orders! Get moving!")
-
+    $("button#another-address").after('<form id="address2"> <div class="form-group, address-group"><label for="add-address">Add address:</label><input type="text" class="form-control" id="add-address">' + '  ' + '<label for="address-type2">Type:</label><select class="form-control, type-group" id="address-type2"><option value="Personal">Personal</option><option value="Work">Work</option></select></div><div class="form-group, address-group"><label for="add-email">Add email:</label><input type="text" class="form-control" id="add-email">' + '  ' + '<label for="email-type2">Type:</label><select class="form-control, type-group" id="email-type2"><option value="Personal">Personal</option><option value="Work">Work</option></select></div><button type="submit" class="btn-primary">Add address</button></form>')
     $("#another-address").detach();
   });
 };
@@ -136,6 +133,18 @@ $(document).ready(function() {
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, address0);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
-
+  });
+  $("form#address2").submit(function(event) {
+    event.preventDefault();
+    var secondEmail = $("input#add-address").val();
+    var secondAddress = $("input#add-email").val();
+    var addressType2 = $("address-type2").val();
+    var emailType2 = $("email-type2").val();
+    $("input#add-address").val("");
+    $("input#add-email").val("");
+    $("address-type2").val("");
+    $("email-type2").val("");
+    address0.addAddress(secondEmail, secondAddress, emailType2, addressType2);
+    console.log(address0.length);
   });
 });
