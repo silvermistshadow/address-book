@@ -9,5 +9,9 @@
 
 .type-group {
   max-width: 500px;
-  
+
+}
+
+.secondAddresses {
+  display: none;
 }
